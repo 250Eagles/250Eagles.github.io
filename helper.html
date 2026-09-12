@@ -682,7 +682,7 @@ const RATE_LIMIT_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
 const SEND_COOLDOWN_MS = 4000;          // min gap between sends
 const MAX_QUESTION_CHARS = 600;
 const MAX_HISTORY_TURNS = 6;            // user+model pairs kept in context
-const TOP_K_CHUNKS = 7;                 // manual excerpts pulled in per question
+const TOP_K_CHUNKS = 9;                 // manual excerpts pulled in per question
 
 let lastSendAt = 0;
 
@@ -720,12 +720,29 @@ function updateRateDisplay() {
 // grounded with the actual excerpts pulled from V1 of the manual,
 // and the system prompt below tells the model to use ONLY those
 // excerpts.
+//
+// v2 fixes two real bugs found by testing "explain how to play
+// this season's game":
+//   1. "game" was wrongly in the stopword list, throwing away the
+//      one word most likely to match the "Game Overview" heading.
+//   2. Matching used substring search, not whole-word — so "play"
+//      matched inside "Playoff", pulling tournament-bracket pages
+//      instead of actual gameplay. Now uses \b word-boundary regex.
+// It also normalizes by chunk length, so a short section that's
+// ABOUT a topic outranks a long procedural section that just
+// happens to mention the word many times in passing — and adds a
+// small synonym boost for "how do you play"-style broad questions,
+// since a handful of common words alone can't tell the difference
+// between "explain the game" and "explain the tournament format."
 // ---------------------------------------------------------------
 const STOPWORDS = new Set(("a an the of to in on for and or is are was were be been being "
   + "this that these those it its as at by from with about into over under again "
-  + "what when where which who whom how why can does do did will would should could "
+  + "what when where which who whom why can does do did will would should could "
   + "i you he she we they them my your our their there here not no yes so if than then "
-  + "robot team match game rules rule question help please tell explain").split(/\s+/));
+  + "please tell explain").split(/\s+/));
+
+const BROAD_INTENT_RE = /\b(how (do|does|to) (you |the )?(play|the game work)|explain (the )?game|game ?play|rules of the game|overview of the game|how the game works|what('| i)?s this (season|year)'?s? game)\b/i;
+const BROAD_INTENT_TERMS = ["arena", "field", "match", "scoring", "elements", "periods", "overview", "hive", "flower", "alliance"];
 
 function tokenize(str) {
   return (str.toLowerCase().match(/[a-z0-9']+/g) || []).filter(
@@ -733,18 +750,29 @@ function tokenize(str) {
   );
 }
 
+function escapeRegex(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function countWholeWord(textLower, term) {
+  const re = new RegExp("\\b" + escapeRegex(term) + "\\b", "g");
+  const m = textLower.match(re);
+  return m ? m.length : 0;
+}
+
 function retrieveChunks(query, k) {
-  const terms = tokenize(query);
+  let terms = tokenize(query);
+  if (BROAD_INTENT_RE.test(query)) terms = terms.concat(BROAD_INTENT_TERMS);
   if (terms.length === 0) return MANUAL_CHUNKS.slice(0, k);
 
   const scored = MANUAL_CHUNKS.map((c) => {
     const bodyLower = c.text.toLowerCase();
     const headingLower = c.heading.toLowerCase();
+    const lenFactor = Math.max(c.text.length, 400) / 1000; // per-1000-char density
     let score = 0;
     for (const t of terms) {
-      const bodyHits = bodyLower.split(t).length - 1;
-      score += bodyHits;
-      if (headingLower.includes(t)) score += 5; // heading match = strong signal
+      score += countWholeWord(bodyLower, t) / lenFactor;
+      if (countWholeWord(headingLower, t) > 0) score += 6; // heading match = strong signal
     }
     return { chunk: c, score };
   });
