@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Team 36855 — 250 Eagles — FTC Robotics</title>
+<meta name="description" content="Team 36855, 250 Eagles, is a FIRST Tech Challenge robotics team in Aldie, VA competing in the 2026-2027 BIOBUZZ season.">
+<meta name="theme-color" content="#06142c">
+<link rel="icon" type="image/png" href="assets/logo-small.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@500;700;800&family=Big+Shoulders+Stencil:wght@700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topnav">
+  <div class="wrap">
+    <a href="#home" class="brand" data-page="home"><img src="assets/logo-small.png" alt=""><span>250 Eagles</span></a>
+    <nav aria-label="Primary">
+      <ul class="tabs">
+        <li><a href="#home" class="tab" data-page="home">Home</a></li>
+        <li><a href="#team" class="tab" data-page="team">Team</a></li>
+        <li><a href="#sponsors" class="tab" data-page="sponsors">Sponsors</a></li>
+        <li><a href="#contact" class="tab" data-page="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ======================= HOME ======================= -->
+<div class="page" id="page-home" data-page="home">
+
+  <section class="story" id="story" aria-label="Our robot">
+    <div class="stage" id="stage">
+      <canvas id="robot-canvas" aria-hidden="true"></canvas>
+      <svg id="annotations" aria-hidden="true"></svg>
+      <div class="fallback"><img src="assets/logo-hero.png" alt=""></div>
+      <div class="loader" id="loader"><span id="loader-text">LOADING ROBOT CAD</span><div class="track"><div class="fill" id="loader-fill"></div></div></div>
+
+      <div class="beat beat-hero on" data-beat="0">
+        <img class="mark" src="assets/logo-hero.png" alt="250 Eagles logo">
+        <span class="number">Team No. 36855</span>
+        <h1>250<br>Eagles</h1>
+        <p class="lede">A student-run FIRST® Tech Challenge robotics team — designing, building, and programming a competition robot from scratch, then defending it on the field every season.</p>
+        <div class="btn-row">
+          <a href="#sponsors" data-page="sponsors" class="btn btn-primary">Become a sponsor</a>
+          <a href="#team" data-page="team" class="btn btn-ghost">Meet the team</a>
+        </div>
+      </div>
+
+      <div class="beat beat-side right" data-beat="1">
+        <span class="kicker">FIG. 01 · OVERALL DIMENSIONS</span>
+        <h2>Designed in CAD.<br>Built by students.</h2>
+        <p>Every season starts on screen. This is our robot exactly as it lives in our assembly file — sized to fit inside FIRST’s 18-inch starting cube.</p>
+      </div>
+
+      <div class="beat beat-side left" data-beat="2">
+        <span class="kicker">FIG. 02 · EXPLODED VIEW</span>
+        <span class="big">723</span>
+        <h2>pieces of hardware.</h2>
+        <p>Out of 939 parts in the assembly, 723 are screws, nuts, and spacers. Every one of them was placed, tightened, and checked by a student.</p>
+      </div>
+
+      <div class="beat beat-side right" data-beat="3">
+        <span class="kicker">FIG. 03 · SUBSYSTEMS</span>
+        <h2>Every part has a job.</h2>
+        <p>An intake across the front, a flywheel shooter under an angled hood, and six-wheel drive underneath — designed, fabricated, wired, and programmed in-house.</p>
+      </div>
+
+      <div class="scroll-cue" id="scroll-cue"><span>SCROLL</span><i></i></div>
+    </div>
+  </section>
+
+  <div class="spec-strip">
+    <div class="wrap">
+      <div class="spec"><span class="label">PROGRAM</span><span class="value">FIRST Tech Challenge</span></div>
+      <div class="spec"><span class="label">SEASON</span><span class="value">BIOBUZZ 2026–27</span></div>
+      <div class="spec"><span class="label">TEAM NO.</span><span class="value">36855</span></div>
+      <div class="spec"><span class="label">LOCATION</span><span class="value">Aldie, VA</span></div>
+    </div>
+  </div>
+
+  <section class="section grid-bg">
+    <div class="wrap two-col">
+      <div class="prose">
+        <div class="section-head">
+          <span class="eyebrow">about</span>
+          <h2>Engineering, on a clock</h2>
+        </div>
+        <p>Every FIRST Tech Challenge season hands teams a brand-new game and a matter of weeks to design, build, wire, and program a robot capable of playing it, then compete head-to-head against other teams at live events. Team 36855 handles every part of that process ourselves: mechanical design, CAD, fabrication, electrical, and software.</p>
+        <p>Beyond the robot, we work on outreach, strategy, and the business side of running a competitive team — which is where our sponsors come in. <a href="#sponsors" data-page="sponsors">See how a partnership works</a>.</p>
+      </div>
+      <figure class="plate">
+        <div class="plate-box"><span>Team photo coming soon</span></div>
+        <figcaption><b>FIG. 04</b> — Team 36855, BIOBUZZ 2026–27</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <span class="eyebrow">endgame</span>
+      <h2>Help us compete</h2>
+      <p>Parts, tools, registration fees, and travel to events all add up. Local sponsors are what get us to the field.</p>
+      <a href="#sponsors" data-page="sponsors" class="btn btn-ghost">See sponsorship info</a>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= TEAM ======================= -->
+<div class="page" id="page-team" data-page="team" hidden>
+  <section class="subhero grid-bg">
+    <div class="wrap">
+      <span class="eyebrow">roster</span>
+      <h1>The team</h1>
+      <p class="lede">The students and mentors behind the robot.</p>
+    </div>
+  </section>
+
+  <section class="section tight">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">coaching staff</span><h2>Coaches</h2></div>
+      <div class="coach-grid">
+        <div class="coach"><div class="photo"><img src="assets/team/coach-venu.jpg" alt="Coach Venu" loading="lazy"></div><div><span class="role">Head Coach</span><h3>Coach Venu</h3></div></div>
+        <div class="coach"><div class="photo"><img src="assets/team/coach-xing.jpg" alt="Coach Xing" loading="lazy"></div><div><span class="role">Assistant Coach</span><h3>Coach Xing</h3></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tight join">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">students</span><h2>Members</h2></div>
+      <div class="members">
+        <div class="member"><div class="photo"><img src="assets/team/mahit-somarapu.jpg" alt="Mahit Somarapu" loading="lazy"></div><span class="role">Team Lead / Code Lead</span><h3>Mahit Somarapu</h3></div>
+        <div class="member"><div class="photo"><img src="assets/team/prajith-ramakrishnan.jpg" alt="Prajith Ramakrishnan" loading="lazy"></div><span class="role">Co-Lead / Build Lead</span><h3>Prajith Ramakrishnan</h3></div>
+        <div class="member"><div class="photo"><img src="assets/team/uzair-daniyal.jpg" alt="Uzair Daniyal" loading="lazy"></div><span class="role">Code Team / Team Treasurer</span><h3>Uzair Daniyal</h3></div>
+        <div class="member"><div class="photo"><img src="assets/team/aayush-gaikawari.jpg" alt="Aayush Gaikawari" loading="lazy"></div><span class="role">Outreach Team Lead</span><h3>Aayush Gaikawari</h3></div>
+        <div class="member"><div class="photo"><img src="assets/team/christian-yim.jpg" alt="Christian Yim" loading="lazy"></div><span class="role">Design Lead / Build Sub-Captain</span><h3>Christian Yim</h3></div>
+        <div class="member"><div class="photo"><img src="assets/team/tyler-kim.jpg" alt="Tyler Kim" loading="lazy"></div><span class="role">Build &amp; Outreach</span><h3>Tyler Kim</h3></div>
+        <div class="member"><div class="photo"><img src="assets/team/mithul-krishna.jpg" alt="Mithul Krishna" loading="lazy"></div><span class="role">Build Team</span><h3>Mithul Krishna</h3></div>
+        <div class="member"><div class="photo"><img src="assets/team/rohit-ravi.jpg" alt="Rohit Ravi" loading="lazy"></div><span class="role">Code Team</span><h3>Rohit Ravi</h3></div>
+        <div class="member"><div class="photo"><img src="assets/team/rishi-gomathinayagam.jpg" alt="Rishi Gomathinayagam" loading="lazy"></div><span class="role">Build Team</span><h3>Rishi Gomathinayagam</h3></div>
+        <div class="member"><div class="photo"><img src="assets/team/arman-kassim.jpg" alt="Arman Kassim" loading="lazy"></div><span class="role">Outreach Team</span><h3>Arman Kassim</h3></div>
+        <div class="member"><div class="photo"><img src="assets/team/titus-li.jpg" alt="Titus Li" loading="lazy"></div><span class="role">Build Team</span><h3>Titus Li</h3></div>
+        <div class="member"><div class="photo"><img src="assets/team/akshaj-sharma.jpg" alt="Akshaj Sharma" loading="lazy"></div><span class="role">Code Team</span><h3>Akshaj Sharma</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <span class="eyebrow">endgame</span>
+      <h2>Help us compete</h2>
+      <p>Parts, tools, registration fees, and travel to events all add up. Local sponsors are what get us to the field.</p>
+      <a href="#sponsors" data-page="sponsors" class="btn btn-ghost">See sponsorship info</a>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= SPONSORS ======================= -->
+<div class="page" id="page-sponsors" data-page="sponsors" hidden>
+  <section class="subhero grid-bg">
+    <div class="wrap">
+      <span class="eyebrow">partnership</span>
+      <h1>Sponsor Team 36855</h1>
+      <p class="lede">We’re currently building out our sponsor program for the BIOBUZZ season. No tiers or packages posted yet — but we’d love to talk with you directly about what a partnership could look like.</p>
+    </div>
+  </section>
+
+  <section class="section tight">
+    <div class="wrap pair">
+      <div class="panel">
+        <span class="eyebrow">why it matters</span>
+        <h2>What your support funds</h2>
+        <ul class="ticks">
+          <li>Robot parts, motors, sensors, and the control system electronics we build with all season.</li>
+          <li>Competition registration fees and required team gear.</li>
+          <li>Travel and lodging for regional and championship events.</li>
+          <li>Outreach materials for the STEM demos we run in the community.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="eyebrow">in return</span>
+        <h2>What sponsors get</h2>
+        <ul class="ticks">
+          <li>Your name or logo on the robot, team banner, and this website.</li>
+          <li>Shout-outs across our team’s social media and event outreach.</li>
+          <li>A direct line to a group of students building real engineering and programming skills in your community.</li>
+          <li><span class="ph">[FIRST is a 501(c)(3) nonprofit — confirm your team’s specific tax-deductible status with your own advisor before stating this to sponsors.]</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section join">
+    <div class="wrap two-col">
+      <div class="prose">
+        <div class="section-head"><span class="eyebrow">get in touch</span><h2>Talk to us about sponsoring</h2></div>
+        <p>Tell us a bit about your business and what you’re interested in — we’ll follow up to talk through options.</p>
+        <ul class="info-list">
+          <li><span class="label">Email</span><span class="value ph">[sponsors@team36855.org]</span></li>
+          <li><span class="label">Team</span><span class="value">FTC® 36855 — 250 Eagles</span></li>
+        </ul>
+      </div>
+      <div class="form-panel">
+        <form data-mailto="sponsors@team36855.org">
+          <input type="hidden" name="subject" value="Sponsorship inquiry — Team 36855 250 Eagles">
+          <div class="field"><label for="s-name">Your name</label><input id="s-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="s-org">Business / organization</label><input id="s-org" name="org" type="text" autocomplete="organization"></div>
+          <div class="field"><label for="s-email">Email</label><input id="s-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="s-message">What are you interested in?</label><textarea id="s-message" name="message" placeholder="e.g. cash donation, parts/materials, in-kind services…" required></textarea></div>
+          <button type="submit" class="btn btn-primary">Send inquiry</button>
+          <p class="form-note">Opens your email app with this pre-filled — update the address in <code>data-mailto</code> once you have a real sponsor inbox.</p>
+          <div class="form-status" role="status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= CONTACT ======================= -->
+<div class="page" id="page-contact" data-page="contact" hidden>
+  <section class="subhero grid-bg">
+    <div class="wrap">
+      <span class="eyebrow">get in touch</span>
+      <h1>Contact us</h1>
+      <p class="lede">Questions about the team, want to mentor, or a media inquiry — reach out below.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap two-col">
+      <div class="prose">
+        <div class="section-head"><span class="eyebrow">details</span><h2>Reach the team</h2></div>
+        <ul class="info-list">
+          <li><span class="label">Email</span><span class="value ph">[team36855@example.org]</span></li>
+          <li><span class="label">Meeting location</span><span class="value"><span class="ph">[meeting location]</span>, Aldie, VA</span></li>
+          <li><span class="label">Sponsorship inquiries</span><span class="value"><a href="#sponsors" data-page="sponsors">Visit the sponsors page</a></span></li>
+        </ul>
+      </div>
+      <div class="form-panel">
+        <form data-mailto="team36855@example.org">
+          <div class="field"><label for="c-name">Your name</label><input id="c-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field">
+            <label for="c-topic">Topic</label>
+            <select id="c-topic" name="subject">
+              <option value="General question — Team 36855 250 Eagles">General question</option>
+              <option value="Mentoring interest — Team 36855 250 Eagles">Interested in mentoring</option>
+              <option value="Media inquiry — Team 36855 250 Eagles">Media inquiry</option>
+              <option value="Other — Team 36855 250 Eagles">Other</option>
+            </select>
+          </div>
+          <div class="field"><label for="c-message">Message</label><textarea id="c-message" name="message" required></textarea></div>
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <p class="form-note">Opens your email app with this pre-filled — update the address in <code>data-mailto</code> once you have a real team inbox.</p>
+          <div class="form-status" role="status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer class="title-block">
+  <div class="wrap">
+    <div class="tb-grid">
+      <div class="tb-cell"><span class="tb-label">TITLE</span><span class="tb-value">Team 36855 — 250 Eagles</span></div>
+      <div class="tb-cell"><span class="tb-label">SHEET</span><span class="tb-value" id="sheet-label">Home · 1/4</span></div>
+      <div class="tb-cell"><span class="tb-label">REV.</span><span class="tb-value">BIOBUZZ 2026–27</span></div>
+      <div class="tb-cell"><span class="tb-label">LOCATION</span><span class="tb-value">Aldie, VA</span></div>
+    </div>
+    <div class="tb-bottom">
+      <ul class="tb-links">
+        <li><a href="#home" data-page="home">Home</a></li>
+        <li><a href="#team" data-page="team">Team</a></li>
+        <li><a href="#sponsors" data-page="sponsors">Sponsors</a></li>
+        <li><a href="#contact" data-page="contact">Contact</a></li>
+      </ul>
+      <div class="tb-copy">© 2026 Team 36855 — 250 Eagles · FIRST® Tech Challenge</div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/environments/RoomEnvironment.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meshoptimizer@0.20.0/meshopt_decoder.js"></script>
+<script src="robot.js"></script>
+</body>
+</html>
